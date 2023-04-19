@@ -16,11 +16,11 @@
         <th>Surname</th>
         <th>age</th>
     </tr>
-    <tr th:each="user : ${allUsers}">
-        <th th:utext="${user.getId()}">Id</th>
-        <th th:utext="${user.getName()}">Name</th>
-        <th th:utext="${user.setSurname()}">Surname</th>
-        <th th:utext="${user.getAge()}">Age</th>
+    <tr th:each="user : ${users}">
+        <th th:utext="${user.id}">Id</th>
+        <th th:utext="${user.name}">Name</th>
+        <th th:utext="${user.surname}">Surname</th>
+        <th th:utext="${user.age}">Age</th>
     </tr>
 </table>
 </body>
