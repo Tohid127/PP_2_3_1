@@ -3,25 +3,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>All Users</title>
 </head>
 <body>
-<h2>All Users</h2>
-<br>
-
-<table th:bored="1">
+<table th:border="1">
+    <thread>
+        <tr>All Users</tr>
+    </thread>
+    <tbody>
     <tr>
         <th>Id</th>
         <th>Name</th>
         <th>Surname</th>
-        <th>age</th>
+        <th>Age</th>
+        <th>Buttons</th>
     </tr>
     <tr th:each="user : ${users}">
-        <th th:utext="${user.id}">Id</th>
-        <th th:utext="${user.name}">Name</th>
-        <th th:utext="${user.surname}">Surname</th>
-        <th th:utext="${user.age}">Age</th>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.age}"></td>
+
+        <td>
+            <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
+                <input type="submit" value="DELETE">
+            </form>
+            <form th:method="GET" th:action="@{/{id}/edit(id=${user.getId()})}">
+                <input type="submit" value="UPDATE">
+            </form>
+        </td>
     </tr>
+    </tbody>
 </table>
+
+<br>
+
+<form th:method="GET" th:action="@{/new}">
+    <input type="submit" value="ADD">
+</form>
 </body>
 </html>
